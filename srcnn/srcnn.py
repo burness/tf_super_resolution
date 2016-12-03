@@ -93,6 +93,7 @@ def process_data(sess, filenames):
     channels = FLAGS.image_channels
     image = tf.image.decode_jpeg(
         value, channels=channels, name="dataset_image")
+    # add data augmentation here
     image.set_shape([None, None, channels])
     image = tf.reshape(image, [1, images_size, images_size, 3])
     image = tf.cast(image, tf.float32) / 255.0
